@@ -27,9 +27,9 @@ RUN pip3 install --upgrade pip && pip3 install --no-cache-dir --ignore-installed
 COPY --chown=fenics dolfin-adjoint.conf $FENICS_HOME/dolfin-adjoint.conf
 COPY --chown=fenics coinhsl.tar.gz $FENICS_HOME/coinhsl.tar.gz
 ARG IPOPT_VER=3.12.13
-RUN source $FENICS_HOME/dolfin-adjoint.conf && \
-    update_ipopt && \
-    update_pyipopt"
+RUN /bin/bash -l -c "source $FENICS_HOME/dolfin-adjoint.conf && \
+                     update_ipopt && \
+                     update_pyipopt"
                      
 ARG MOOLA_BRANCH="master"
 RUN pip3 install --no-cache git+git://github.com/funsim/moola.git@${MOOLA_BRANCH}
