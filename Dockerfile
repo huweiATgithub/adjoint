@@ -34,7 +34,7 @@ RUN /bin/bash -l -c "source $FENICS_HOME/dolfin-adjoint.conf && \
 ARG MOOLA_BRANCH="master"
 RUN pip3 install --no-cache git+git://github.com/funsim/moola.git@${MOOLA_BRANCH}
 
-ARG DOLFIN_ADJOINT_BRANCH="2019.1.0"
+ARG DOLFIN_ADJOINT_BRANCH="master"
 RUN pip3 install --no-cache git+https://bitbucket.org/dolfin-adjoint/pyadjoint.git@${DOLFIN_ADJOINT_BRANCH}
 
 USER fenics
