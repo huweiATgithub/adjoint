@@ -34,7 +34,6 @@ ARG DOLFIN_ADJOINT_BRANCH="2019.1.0"
 RUN /bin/bash -l -c "pip3 install --no-cache git+https://bitbucket.org/dolfin-adjoint/pyadjoint.git@${DOLFIN_ADJOINT_BRANCH}"
 
 USER fenics
-COPY --chown=fenics WELCOME $FENICS_HOME/WELCOME
 RUN echo "source $FENICS_HOME/dolfin-adjoint.conf" >> $FENICS_HOME/.bash_profile
 
 RUN /bin/bash -l -c "python3 -c \"import fenics_adjoint\""
