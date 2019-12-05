@@ -16,6 +16,7 @@ USER root
 RUN apt-get -qq update && \
     DEBIAN_FRONTEND=noninteractive apt-get -y install --no-install-recommends \
     libjsoncpp-dev \
+    file \
     python-dev graphviz libgraphviz-dev && \
     apt-get clean && \
     apt-get autoremove && \
