@@ -14,9 +14,11 @@ MAINTAINER HU Wei <whuae@connect.ust.hk>
 
 USER root
 RUN apt-get -qq update && \
-    apt-get -y install libjsoncpp-dev && \
-    apt-get -y install python-dev graphviz libgraphviz-dev && \
+    DEBIAN_FRONTEND=noninteractive apt-get -y install --no-install-recommends \
+    libjsoncpp-dev \
+    python-dev graphviz libgraphviz-dev && \
     apt-get clean && \
+    apt-get autoremove && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 RUN /bin/bash -l -c "pip3 install --no-cache --ignore-installed scipy"
 
