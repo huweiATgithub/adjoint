@@ -22,7 +22,7 @@ RUN /bin/bash -l -c "pip3 install --no-cache --ignore-installed scipy"
 
 COPY --chown=fenics dolfin-adjoint.conf $FENICS_HOME/dolfin-adjoint.conf
 COPY --chown=fenics coinhsl.tar.gz $FENICS_HOME/coinhsl.tar.gz
-ARG IPOPT_VER=3.12.9
+ARG IPOPT_VER=3.12.13
 RUN /bin/bash -l -c "source $FENICS_HOME/dolfin-adjoint.conf && \
                      update_ipopt && \
                      update_pyipopt"
